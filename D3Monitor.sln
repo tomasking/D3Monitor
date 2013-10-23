@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Model.DataContracts", "Source\App\D3Model.DataContracts\D3Model.DataContracts.csproj", "{ED952186-B9F6-4648-B0E4-AAA066DA6292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Monitor.SubscriptionService", "Source\App\D3Monitor.SubscriptionService\D3Monitor.SubscriptionService.csproj", "{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Monitor.Web", "Source\App\D3Monitor.Web\D3Monitor.Web.csproj", "{BBB28769-6441-48A8-9BCC-E6BC34440E40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3548217-62D4-4C65-AD3B-C1436952AC19}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED952186-B9F6-4648-B0E4-AAA066DA6292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED952186-B9F6-4648-B0E4-AAA066DA6292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED952186-B9F6-4648-B0E4-AAA066DA6292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED952186-B9F6-4648-B0E4-AAA066DA6292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
