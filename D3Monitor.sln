@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Model.DataContracts", "Source\App\D3Model.DataContracts\D3Model.DataContracts.csproj", "{ED952186-B9F6-4648-B0E4-AAA066DA6292}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Monitor.SubscriptionService", "Source\App\D3Monitor.SubscriptionService\D3Monitor.SubscriptionService.csproj", "{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}"
@@ -15,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A35482
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{5F300E91-5942-4039-BFDB-B02006AD9E30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{38B817DD-B3B5-491A-B949-C1D561B7CB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Monitor.Tests", "Source\Tests\D3Monitor.Tests\D3Monitor.Tests.csproj", "{62AAAAC6-0917-4DFD-B024-8512B3A5259D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,8 +38,18 @@ Global
 		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBB28769-6441-48A8-9BCC-E6BC34440E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62AAAAC6-0917-4DFD-B024-8512B3A5259D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AAAAC6-0917-4DFD-B024-8512B3A5259D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AAAAC6-0917-4DFD-B024-8512B3A5259D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AAAAC6-0917-4DFD-B024-8512B3A5259D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED952186-B9F6-4648-B0E4-AAA066DA6292} = {5F300E91-5942-4039-BFDB-B02006AD9E30}
+		{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96} = {5F300E91-5942-4039-BFDB-B02006AD9E30}
+		{BBB28769-6441-48A8-9BCC-E6BC34440E40} = {5F300E91-5942-4039-BFDB-B02006AD9E30}
+		{62AAAAC6-0917-4DFD-B024-8512B3A5259D} = {38B817DD-B3B5-491A-B949-C1D561B7CB66}
 	EndGlobalSection
 EndGlobal
