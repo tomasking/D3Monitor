@@ -11,11 +11,11 @@ namespace D3Monitor.SignalR
         private readonly ISubscriptionServiceWrapper subscriptionServiceWrapper;
         private static readonly ILog Log = LogManager.GetLogger(typeof(SubscriptionHub));
 
-        //TODO: override hub injection
-        public SubscriptionHub() : this(new SubscriptionServiceWrapper()){}
-        public SubscriptionHub(ISubscriptionServiceWrapper subscriptionServiceWrapper )
+        public SubscriptionHub()
         {
-            this.subscriptionServiceWrapper = subscriptionServiceWrapper;
+            subscriptionServiceWrapper = Bootstrapper.Container.Resolve<ISubscriptionServiceWrapper>();
+            Log.Info("SubscriptionHub");
+            subscriptionServiceWrapper.SubscriptionsChanged += subscriptionServiceWrapper_SubscriptionsChanged;
         }
         
         public ApplicationDto[] GetAllApplications()
@@ -33,16 +33,44 @@ namespace D3Monitor.SignalR
             }
         }
 
+        void subscriptionServiceWrapper_SubscriptionsChanged(object sender, List<SubscriptionInformation> subscriptions)
+        {
+            try
+            {
+                Clients.Client(Context.ConnectionId).ApplicationsChanged(Transform(subscriptions));
+            }
+            catch (HubException e)
+            {
+                Log.Error(e);
+                throw;
+            }
+        }
+
         private List<ApplicationDto> Transform(IEnumerable<SubscriptionInformation> subscriptions)
         {
             var applications = new List<ApplicationDto>();
             foreach (var subscription in subscriptions)
             {
-                applications.Add(new ApplicationDto(){ Name=subscription.ApplicationName});
+                applications.Add(Transform(subscription));
             }
             return applications;
         }
+
+        private static ApplicationDto Transform(SubscriptionInformation subscription)
+        {
+            return new ApplicationDto()
+            {
+                Name=subscription.ApplicationName,
+                SubscriptionId = subscription.SubscriptionId
+            };
+        }
+
+        public override System.Threading.Tasks.Task OnDisconnected()
+        {
+            Log.Info("OnDisconnected");
+            
+
+            return base.OnDisconnected();
+        }
     }
-
-
 }

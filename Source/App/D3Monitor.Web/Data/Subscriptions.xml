@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ArrayOfSubscriptionInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfSubscriptionInformation>
   <SubscriptionInformation>
     <ClientId>875406c4-af50-4382-bb2d-d78f75093edd</ClientId>
     <ClientName>FootballMatchStateController</ClientName>

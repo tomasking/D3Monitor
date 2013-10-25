@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using D3Model.DataContracts;
 using log4net;
 
@@ -10,6 +11,7 @@ namespace D3Monitor.SubscriptionService
     public interface ISubscriptionServiceWrapper
     {
         IEnumerable<SubscriptionInformation> GetSubscriptions();
+        event EventHandler<List<SubscriptionInformation>> SubscriptionsChanged;
     }
 
     public class SubscriptionServiceWrapper : ISubscriptionServiceWrapper
@@ -17,16 +19,18 @@ namespace D3Monitor.SubscriptionService
         private const string DataPath = @"C:\Git\D3Monitor\Source\App\D3Monitor.Web\Data\";
         private const string Filename = "Subscriptions.xml";
         private readonly IXmlFileAccess<SubscriptionInformation[]> xmlFileAccess;
-        private readonly List<SubscriptionInformation> subscriptions;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(SubscriptionServiceWrapper));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (SubscriptionServiceWrapper));
+        private static readonly object FileLock = new object();
+
+        public event EventHandler<List<SubscriptionInformation>> SubscriptionsChanged;
 
         public SubscriptionServiceWrapper()
         {
             try
             {
+                Log.Info("SubscriptionServiceWrapper STARTING");
                 xmlFileAccess = new XmlFileAccess<SubscriptionInformation[]>();
-                subscriptions = xmlFileAccess.Load(Path.Combine(DataPath, Filename)).ToList();
-                //StartWatchingFiles();
+                StartWatchingFiles();
             }
             catch (Exception e)
             {
@@ -37,49 +41,39 @@ namespace D3Monitor.SubscriptionService
 
         public IEnumerable<SubscriptionInformation> GetSubscriptions()
         {
-            return subscriptions;
+            return xmlFileAccess.Load(Path.Combine(DataPath, Filename)).ToList(); ;
         }
+
+        private FileSystemWatcher watcher;
 
         private void StartWatchingFiles()
         {
-            var watcher = new FileSystemWatcher {Path = DataPath, NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite, Filter = "*.xml"};
+            watcher = new FileSystemWatcher {Path = DataPath, NotifyFilter = NotifyFilters.LastWrite, Filter = "*.xml"};
             watcher.Changed += OnChanged;
             watcher.EnableRaisingEvents = true; // Begin watching.
         }
-
- 
-        private void OnChanged(object sender, FileSystemEventArgs e)
+        
+        private void OnChanged(object sender, FileSystemEventArgs fileSystem)
         {
-            SubscriptionInformation[] loadedSubscriptions = xmlFileAccess.Load(Path.Combine(DataPath, Filename));
-            
-            foreach (var loadedSubscription in loadedSubscriptions)
+            try
             {
-                var existing = subscriptions.SingleOrDefault(s => s.SubscriptionId == loadedSubscription.SubscriptionId);
-                if (existing == null)
+                lock (FileLock)
                 {
-                    RaiseSubscriptionAdded(loadedSubscription);
+                    Thread.Sleep(1000);
+                    SubscriptionInformation[] loadedSubscriptions = xmlFileAccess.Load(Path.Combine(DataPath, Filename));
+                    
+                    if (SubscriptionsChanged != null)
+                    {
+                        SubscriptionsChanged(this, loadedSubscriptions.ToList());
+                    }
                 }
             }
-            foreach (var subscription in subscriptions)
+            catch (Exception e)
             {
-                var loadedSubscription = loadedSubscriptions.SingleOrDefault(s => s.SubscriptionId == subscription.SubscriptionId);
-                if (loadedSubscription == null)
-                {
-                    RaiseSubscriptionDeleted(subscription);
-                }
-           }
+                Log.Error(e);
+                throw;
+            }
         }
-
-        private void RaiseSubscriptionAdded(SubscriptionInformation subscription)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void RaiseSubscriptionDeleted(SubscriptionInformation subscription)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        
     }
 }
+

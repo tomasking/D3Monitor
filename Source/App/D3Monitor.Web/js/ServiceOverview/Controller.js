@@ -3,23 +3,27 @@ d3MonitorApp.controller('ServiceOverviewController', function ServiceOverviewCon
     
     $scope.applications = [];
     
-
     var svg = d3.select("#drawingArea").append("svg")
             .attr("width", 500)
             .attr("height", 500);
 
     svg.append("svg:rect").attr("width", 200).attr("height", 80).style("fill", "#eeeeee").style("stroke", "#FFF");
-    
+
     var loadApplications = function() {
         subscriptionService.getApplications()
-            .done(function (response) {
+            .done(function(response) {
                 $scope.applications = response;
                 $scope.$apply();
-            }).fail(function (error) {
+            }).fail(function(error) {
                 alert(error);
             });
-    }
+    };
 
+    subscriptionService.onApplicationsChanged(function (applications) {
+        $scope.applications = applications; //TODO: update individual ones rather than whole array
+        $scope.$apply();
+    });
+    
     subscriptionService.onConnected(function () {
         loadApplications();
     });

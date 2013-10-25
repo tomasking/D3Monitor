@@ -20,12 +20,16 @@ namespace D3Monitor.SubscriptionService
         {
             lock (fileLock)
             {
-                var reader = new XmlSerializer(typeof (T));
-
-                using (var file = new StreamReader(fileName))
+                using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
-                    T service = ((T) reader.Deserialize(file));
-                    return service;
+                    fs.Position = 0;
+                    using (var file = new StreamReader(fs))
+                    {
+                        var reader = new XmlSerializer(typeof (T));
+                        T service = ((T) reader.Deserialize(file));
+                        file.Close();
+                        return service;
+                    }
                 }
             }
         }
