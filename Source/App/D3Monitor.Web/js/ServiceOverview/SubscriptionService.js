@@ -3,12 +3,19 @@ d3MonitorApp.factory('subscriptionService', function DemoService() {
 
     var subscriptionHub = $.connection.subscriptionHub;
     var connected = false;
-    var callBacks = [];
-
+    var onConnectedCallBacks = [];
+    var onApplicationsChangedCallbacks = [];
+    
+    subscriptionHub.client.applicationsChanged = function (applications) {
+        for (var c = 0; c < onApplicationsChangedCallbacks.length; c++) {
+            onApplicationsChangedCallbacks[c](applications);
+        }
+    };
+    
     $.connection.hub.start().done(function() {
         connected = true;
-        for (var c = 0; c < callBacks.length; c++) {
-            callBacks[c]();
+        for (var c = 0; c < onConnectedCallBacks.length; c++) {
+            onConnectedCallBacks[c]();
         }
     }).fail(function() {
         alert("Could not Connect!");
@@ -19,8 +26,11 @@ d3MonitorApp.factory('subscriptionService', function DemoService() {
             if (connected) {
                 callback();
             } else {
-                callBacks.push(callback);
+                onConnectedCallBacks.push(callback);
             }
+        },
+        onApplicationsChanged: function(callback) {
+            onApplicationsChangedCallbacks.push(callback);
         },
         getApplications: function() {
             return subscriptionHub.server.getAllApplications();
