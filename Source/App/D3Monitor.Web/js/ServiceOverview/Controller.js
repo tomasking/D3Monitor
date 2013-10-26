@@ -3,7 +3,6 @@ d3MonitorApp.controller('ServiceOverviewController', function ServiceOverviewCon
     
     $scope.applications = [];
     
-
     var svg = d3.select("#drawingArea").append("svg")
             .attr("width", 500)
             .attr("height", 500);
