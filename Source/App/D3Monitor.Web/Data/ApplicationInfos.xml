@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfApplicationInfoDto xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ApplicationInfoDto>
+    <ApplicationName>InRunning.Football</ApplicationName>
+    <X>632</X>
+    <Y>376</Y>
+    <ServiceDown>false</ServiceDown>
+  </ApplicationInfoDto>
+  <ApplicationInfoDto>
+    <ApplicationName>InRunning.Tennis</ApplicationName>
+    <X>593</X>
+    <Y>9</Y>
+    <ServiceDown>false</ServiceDown>
+  </ApplicationInfoDto>
+  <ApplicationInfoDto>
+    <ApplicationName>Resulting.MatchStateResulter</ApplicationName>
+    <X>802</X>
+    <Y>192</Y>
+    <ServiceDown>false</ServiceDown>
+  </ApplicationInfoDto>
+  <ApplicationInfoDto>
+    <ApplicationName>FootballFeed</ApplicationName>
+    <X>142</X>
+    <Y>193</Y>
+    <ServiceDown>false</ServiceDown>
+  </ApplicationInfoDto>
+  <ApplicationInfoDto>
+    <ApplicationName>RunningBall.Connector</ApplicationName>
+    <X>101</X>
+    <Y>544</Y>
+    <ServiceDown>false</ServiceDown>
+  </ApplicationInfoDto>
+</ArrayOfApplicationInfoDto>

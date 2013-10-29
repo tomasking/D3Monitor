@@ -1,6 +1,7 @@
 ﻿using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using D3Monitor.MsmqUtils;
 using D3Monitor.SubscriptionService;
 using log4net;
 
@@ -22,7 +23,10 @@ namespace D3Monitor
              {
                  Log.Info("Bootstrapping");
                  Container.Register(
-                         Component.For<ISubscriptionServiceWrapper>().ImplementedBy<SubscriptionServiceWrapper>());
+                         Component.For<IQueueStats>().ImplementedBy<QueueStats>(),
+                         Component.For<IApplicationInfoDataAccess>().ImplementedBy<ApplicationInfoDataAccess>(),
+                         Component.For<ISubscriptionServiceWrapper>().ImplementedBy<SubscriptionServiceWrapper>()
+                         );
                  return Container;
              }
              catch (Exception e)

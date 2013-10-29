@@ -1,4 +1,37 @@
 ﻿<div>
     <p>Number of applications: {{applications.length}}</p>
-    <div id="drawingArea"></div>
+    <div style="width:69%; float:left" id="drawingArea"></div>
+   
+     <div class="application-info" data-ng-show="selectedApplication!=undefined">
+        <h1>{{ selectedApplication.ApplicationName }}</h1>
+         
+         
+        <table class="servicebus-info">
+            <tr>
+                <th>EndpointUri</th>
+                <th>HostName</th>
+                <th>MessageCount</th>
+            </tr>
+            <tr data-ng-repeat-start="serviceBus in selectedApplication.ServiceBuses">
+                <td>{{serviceBus.EndpointUri}}</td>  
+                <td>{{serviceBus.HostName}}</td>
+                <td>{{serviceBus.MessageCount}}</td>
+            </tr>
+            <tr data-ng-repeat-end>
+                <td colspan="3">
+                    <table class="subscription-info">
+                        <tr data-ng-repeat="subscription in serviceBus.Subscriptions">
+                            <td>{{ subscription.MessageName }}</td>
+                        </tr>
+                    </table>
+
+                </td>
+
+            </tr >
+            
+
+        </table>
+         
+
+     </div>
 </div>

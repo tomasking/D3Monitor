@@ -1,0 +1,67 @@
+﻿
+.body {
+    font-family: arial;
+}
+
+.application-group {
+    
+    font-family: arial;
+    font-size: 12px;
+    cursor:pointer
+}
+
+    .application-box {
+
+        border: 1px solid #000000;
+        fill: #eeeeee;
+        stroke : #000000;
+        opacity: 1;
+        stroke-width: 1px;
+        stroke-opacity: 1;
+    }
+
+    .application-title {
+        
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+
+    .application-info {
+        border:1px dotted #000000; width:26%; float:right;padding-bottom: 40px;
+        padding-left: 1%;
+    }
+
+    h1 {
+        font-size: 16px;
+         font-family: arial;
+
+    }
+
+
+    th {
+        text-align: left;
+    }
+
+
+    .servicebus-info {
+        font-family: arial;
+        font-size: 12px;
+        border: solid 1px #000000;
+        width: 90%;
+    }
+    .servicebus-info tr {
+        border: solid 1px #000000;
+    }
+    .servicebus-info th {
+        border-bottom: solid 1px #000000;
+    }
+    .servicebus-info td {
+        padding: 2px;
+        
+    }
+
+    .subscription-info {
+        margin-left: 20px;
+        font-size: 10px;
+    }

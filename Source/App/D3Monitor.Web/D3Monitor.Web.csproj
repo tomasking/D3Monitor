@@ -89,6 +89,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cs\styles.css" />
+    <Content Include="Data\ApplicationInfos.xml" />
     <Content Include="Data\Subscriptions.xml" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
@@ -98,7 +100,6 @@
     <Content Include="js\ServiceOverview\Directive.js" />
     <Content Include="js\ServiceOverview\SubscriptionService.js" />
     <Content Include="LICENSE.txt" />
-    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\d3.v3.js" />
     <Content Include="Scripts\d3.v3.min.js" />
@@ -133,6 +134,10 @@
     <ProjectReference Include="..\D3Model.DataContracts\D3Model.DataContracts.csproj">
       <Project>{ED952186-B9F6-4648-B0E4-AAA066DA6292}</Project>
       <Name>D3Model.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\D3Monitor.MsmqUtils\D3Monitor.MsmqUtils.csproj">
+      <Project>{AD2CFB50-3FFC-4779-B35D-0F8FA6C7FE64}</Project>
+      <Name>D3Monitor.MsmqUtils</Name>
     </ProjectReference>
     <ProjectReference Include="..\D3Monitor.SubscriptionService\D3Monitor.SubscriptionService.csproj">
       <Project>{8A1C11A7-BAE5-4B77-A6A9-E294D35CFE96}</Project>

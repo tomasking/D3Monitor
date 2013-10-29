@@ -4,10 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>SignalR with AngularJS demo</title>
+    <title>D3 Monitor</title>
+    
+    <link href="cs/styles.css" rel="stylesheet" />
+    
     <script src="Scripts/jquery-1.6.4.min.js"></script>
     <script src="Scripts/jquery.signalR-2.0.0.min.js"></script>
-    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/d3.v3.js"></script>
 
     <script src="js/ServiceOverview/Directive.js"></script>

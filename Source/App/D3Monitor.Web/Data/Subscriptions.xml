@@ -3,10 +3,10 @@
     <ClientId>875406c4-af50-4382-bb2d-d78f75093edd</ClientId>
     <ClientName>FootballMatchStateController</ClientName>
     <ApplicationName>InRunning.Football</ApplicationName>
-    <HostName>irdev.betgenius.net</HostName>
+    <HostName>bgl-tomking</HostName>
     <SubscriptionId>36887044-d408-4071-93c9-4026c22267ff</SubscriptionId>
     <SequenceNumber>1</SequenceNumber>
-    <EndpointUri>msmq://localhost/test_queue</EndpointUri>
+    <EndpointUri>private$\spike_consumer_control</EndpointUri>
     <MessageName>Betgenius.InRunning.FootballMatchState</MessageName>
     <RoutingDetails>
       <RoutingDetail>
@@ -27,10 +27,10 @@
     <ClientId>aa5ff97a-3a77-4e20-aada-0df68ef6d713</ClientId>
     <ClientName>TennisMatchStateController</ClientName>
     <ApplicationName>InRunning.Tennis</ApplicationName>
-    <HostName>emdev.betgenius.net</HostName>
+    <HostName>bgl-tomking</HostName>
     <SubscriptionId>75b850a4-9629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
     <SequenceNumber>1</SequenceNumber>
-    <EndpointUri>msmq://localhost/test_queue</EndpointUri>
+    <EndpointUri>private$\operation_timing</EndpointUri>
     <MessageName>Betgenius.InRunning.FootballMatchState</MessageName>
     <RoutingDetails>
       <RoutingDetail>
@@ -47,4 +47,128 @@
       <MaximumRetriesOnError>2</MaximumRetriesOnError>
     </SubscriptionOptions>
   </SubscriptionInformation>
+  <SubscriptionInformation>
+    <ClientId>aa5ff97a-3a77-4e20-aada-0df68ef6d713</ClientId>
+    <ClientName>TennisMatchStateController</ClientName>
+    <ApplicationName>InRunning.Tennis</ApplicationName>
+    <HostName>bgl-tomking</HostName>
+    <SubscriptionId>79b850a4-9629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
+    <SequenceNumber>1</SequenceNumber>
+    <EndpointUri>private$\modelling.service</EndpointUri>
+    <MessageName>Betgenius.InRunning.FootballMatchState</MessageName>
+    <RoutingDetails>
+      <RoutingDetail>
+        <Key>SportId</Key>
+        <Value>24</Value>
+      </RoutingDetail>
+    </RoutingDetails>
+    <CorrelationId>b7c888e2-ce35-4998-846f-351bb21b56aa</CorrelationId>
+    <SubscriptionOptions>
+      <MessageExpiryTime />
+      <QueueExpiryTime />
+      <IntervalBetweenRetries />
+      <AlwaysPurgeOnStart>true</AlwaysPurgeOnStart>
+      <MaximumRetriesOnError>2</MaximumRetriesOnError>
+    </SubscriptionOptions>
+  </SubscriptionInformation>
+  <SubscriptionInformation>
+    <ClientId>aa5ff97a-3a77-4e20-aada-0df68ef6d713</ClientId>
+    <ClientName>TennisMatchStateController</ClientName>
+    <ApplicationName>InRunning.Tennis</ApplicationName>
+    <HostName>bgl-tomking</HostName>
+    <SubscriptionId>72b850a4-9629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
+    <SequenceNumber>1</SequenceNumber>
+    <EndpointUri>private$\modelling.service</EndpointUri>
+    <MessageName>Betgenius.InRunning.Market</MessageName>
+    <RoutingDetails>
+      <RoutingDetail>
+        <Key>SportId</Key>
+        <Value>24</Value>
+      </RoutingDetail>
+    </RoutingDetails>
+    <CorrelationId>b7c888e2-ce35-4998-846f-351bb21b56aa</CorrelationId>
+    <SubscriptionOptions>
+      <MessageExpiryTime />
+      <QueueExpiryTime />
+      <IntervalBetweenRetries />
+      <AlwaysPurgeOnStart>true</AlwaysPurgeOnStart>
+      <MaximumRetriesOnError>2</MaximumRetriesOnError>
+    </SubscriptionOptions>
+  </SubscriptionInformation>
+   <SubscriptionInformation>
+    <ClientId>aa5ff67a-3a77-4e20-aada-0df68ef6d713</ClientId>
+    <ClientName>ResultingController</ClientName>
+    <ApplicationName>Resulting.MatchStateResulter</ApplicationName>
+    <HostName>bgl-tomking</HostName>
+    <SubscriptionId>72b810a4-9629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
+    <SequenceNumber>1</SequenceNumber>
+    <EndpointUri>private$\mt_subscriptions_error</EndpointUri>
+    <MessageName>Betgenius.InRunning.Result</MessageName>
+    <RoutingDetails>
+      <RoutingDetail>
+        <Key>SportId</Key>
+        <Value>24</Value>
+      </RoutingDetail>
+    </RoutingDetails>
+    <CorrelationId>b7c888e2-ce35-4998-846f-351bb21b56aa</CorrelationId>
+    <SubscriptionOptions>
+      <MessageExpiryTime />
+      <QueueExpiryTime />
+      <IntervalBetweenRetries />
+      <AlwaysPurgeOnStart>true</AlwaysPurgeOnStart>
+      <MaximumRetriesOnError>2</MaximumRetriesOnError>
+    </SubscriptionOptions>
+  </SubscriptionInformation>
+  
+  <SubscriptionInformation>
+    <ClientId>aa5ff17a-3a77-4e20-aada-0df68ef6d713</ClientId>
+    <ClientName>ResultingController</ClientName>
+    <ApplicationName>FootballFeed</ApplicationName>
+    <HostName>bgl-tomking</HostName>
+    <SubscriptionId>72b810a4-9629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
+    <SequenceNumber>1</SequenceNumber>
+    <EndpointUri>private$\spike_consumer_control</EndpointUri>
+    <MessageName>Betgenius.InRunning.Result</MessageName>
+    <RoutingDetails>
+      <RoutingDetail>
+        <Key>SportId</Key>
+        <Value>24</Value>
+      </RoutingDetail>
+    </RoutingDetails>
+    <CorrelationId>b7c888e2-ce31-4998-846f-351bb21b56aa</CorrelationId>
+    <SubscriptionOptions>
+      <MessageExpiryTime />
+      <QueueExpiryTime />
+      <IntervalBetweenRetries />
+      <AlwaysPurgeOnStart>true</AlwaysPurgeOnStart>
+      <MaximumRetriesOnError>2</MaximumRetriesOnError>
+    </SubscriptionOptions>
+  </SubscriptionInformation>
+  
+  <SubscriptionInformation>
+    <ClientId>aa5ff17a-3a77-4e20-aada-0df38ef6d713</ClientId>
+    <ClientName>RunningBallController</ClientName>
+    <ApplicationName>RunningBall.Connector</ApplicationName>
+    <HostName>bgl-tomking</HostName>
+    <SubscriptionId>72b810a4-1629-4bd3-8725-0bd5fa200a0e</SubscriptionId>
+    <SequenceNumber>1</SequenceNumber>
+    <EndpointUri>private$\spike_publisher_control</EndpointUri>
+    <MessageName>Betgenius.InRunning.Result</MessageName>
+    <RoutingDetails>
+      <RoutingDetail>
+        <Key>SportId</Key>
+        <Value>24</Value>
+      </RoutingDetail>
+    </RoutingDetails>
+    <CorrelationId>b7c888e2-ce21-4998-846f-351bb21b56aa</CorrelationId>
+    <SubscriptionOptions>
+      <MessageExpiryTime />
+      <QueueExpiryTime />
+      <IntervalBetweenRetries />
+      <AlwaysPurgeOnStart>true</AlwaysPurgeOnStart>
+      <MaximumRetriesOnError>2</MaximumRetriesOnError>
+    </SubscriptionOptions>
+  </SubscriptionInformation>
+  
+  
 </ArrayOfSubscriptionInformation>

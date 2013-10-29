@@ -34,6 +34,9 @@ d3MonitorApp.factory('subscriptionService', function DemoService() {
         },
         getApplications: function() {
             return subscriptionHub.server.getAllApplications();
+        },
+        saveApplicationPosition: function(appName, x, y) {
+            return subscriptionHub.server.saveApplicationPosition(appName, x, y);
         }
     };
 });
